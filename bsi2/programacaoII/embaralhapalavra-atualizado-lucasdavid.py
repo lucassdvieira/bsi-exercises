@@ -27,6 +27,14 @@ themeSelection = {
         3: ["Gramofone", "Liquidificador", "Castiçal"],
     },
 }
+themeNames = {
+    1: "Cidades",
+    2: "Cores",
+    3: "Times de Futebol",
+    4: "Países",
+    5: "Objetos",
+}
+diffNames = {1: "Iniciante", 2: "Intermediário", 3: "Avançado"}
 
 encouragingSentence = [
     "Que pena :X",
@@ -36,9 +44,9 @@ encouragingSentence = [
 ]
 
 
-def wordFiltered():
-    themeText = "Escolha um tema: \n\n 1 - Cidades\n 2 - Cores\n 3 - Times de Futebol\n 4 - Países\n 5 - Objetos\n\nDigite o número do tema escolhido: "
-    diffText = "Escolha um nível de dificuldade: \n\n 1 - Iniciante\n 2 - Intermediário\n 3 - Avançado\n\nDigite o número da dificuldade escolhida: "
+def themeSelected():
+    themeText = "Escolha um tema: \n\n  1 - Cidades\n  2 - Cores\n  3 - Times de Futebol\n  4 - Países\n  5 - Objetos\n\nDigite o número do tema escolhido: "
+    diffText = "Escolha um nível de dificuldade: \n\n  1 - Iniciante\n  2 - Intermediário\n  3 - Avançado\n\nDigite o número da dificuldade escolhida: "
 
     inputTheme, inputDiff = 0, 0
     while inputTheme not in [1, 2, 3, 4, 5]:
@@ -46,6 +54,9 @@ def wordFiltered():
     while inputDiff not in [1, 2, 3]:
         inputDiff = int(input(diffText))
     themeDiff = themeSelection[inputTheme][inputDiff]
+
+    print(f"\nTema: {themeNames[inputTheme]}\nDificuldade: {diffNames[inputDiff]}")
+
     word = random.choice(themeDiff).lower()
     return word
 
@@ -74,4 +85,4 @@ def main(word, callback):
 
 print(" ---------------------\n |PALAVRA EMBARALHADA| \n ---------------------")
 print("\nTente acertar a palavra embaralhada!")
-main(wordFiltered(), shuffleWord)
+main(themeSelected(), shuffleWord)
