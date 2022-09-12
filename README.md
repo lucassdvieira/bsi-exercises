@@ -1,2 +1,2 @@
 # Exercícios da faculdade
-Repositório para exercícios 
+Repositório para exercícios da faculdade
